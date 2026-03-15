@@ -16,14 +16,12 @@ else()
     endif()
 endif()
 
-file(GLOB VENDORS_SOURCES "vendor/glad/src/glad.c")
-
 include_directories("vendor/glfw/include"
                     "vendor/glad/include")
 
 source_group("Shaders" FILES ${PROJECT_SHADERS})
 
-add_executable(Shooter "source/main.cpp")
+add_executable(Shooter "source/main.cpp" "vendor/glad/src/glad.c")
 
 target_link_libraries(Shooter glfw)
 target_include_directories(Shooter PRIVATE "vendor/stb")
